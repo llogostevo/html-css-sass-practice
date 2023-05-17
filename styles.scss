@@ -1,0 +1,11 @@
+// defines a set of colours in a list
+$colors: (
+    primary: #ff0000,
+    secondary: #00ff00,
+    tertiary: #0000ff,
+);
+
+// uses the map function to get from colors the color with the key primary. 
+h1 {
+    color: map-get($colors, primary);
+}
