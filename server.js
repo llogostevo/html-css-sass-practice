@@ -24,9 +24,14 @@ const server = http.createServer((req,res) => {
         } else {
             // this will set the HTTP code and response headers
             // it sets 200 which is successful response, and the type indicates an html file
-            res.writeHead(200, {'Content-Type': 'text/html'});
             // in this case content sends the response body, the content of the index.html file
-            res.end(content);
+            if (req.url.endsWith('.css')) {
+                res.writeHead(200, { 'Content-Type': 'text/css' });
+              } else {
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.end(content);
+              }
+          
         }
     });
 });
